@@ -1,1 +1,27 @@
-<p>cadastro works!</p>
+<div class="cadastro-container">
+  <h2>Cadastro</h2>
+  <form (ngSubmit)="cadastrarUsuario()">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" [(ngModel)]="usuario.nome" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="emailUsuario">Email</label>
+      <input type="text" name="emailUsuario" [(ngModel)]="usuario.email" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="dataDeNascimento">Data de Nascimento</label>
+      <input type="date" name="dataDeNascimento" [(ngModel)]="usuario.dataDeNascimento" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="senhaUsuario">Senha</label>
+      <input type="password" name="senhaUsuario" [(ngModel)]="usuario.senha" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="confirmarSenha">Confirmar Senha</label>
+      <input type="password" name="confirmarSenha" [(ngModel)]="usuario.confirmarSenha" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <button type="button" (click)="voltar()" class="btn btn-secondary">Voltar</button>
+  </form>
+</div>

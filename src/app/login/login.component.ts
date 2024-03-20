@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  login = { emailUsuario: '', senha: '' }; 
+  login = { emailUsuario: '', senha: '' };
   usuariosCadastrados = [
     { email: 'usuario1@example.com', senha: 'senha123' },
     { email: 'usuario2@example.com', senha: 'abc123' }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     if (typeof localStorage !== 'undefined') {
@@ -30,41 +30,63 @@ export class LoginComponent implements OnInit {
       }
     }
   }
-
   entrar() {
     const { emailUsuario, senha } = this.login;
-    const usuario = this.usuariosCadastrados.find(user => user.email === emailUsuario && user.senha === senha);
-    if (usuario) {
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem('emailUsuario', emailUsuario);
-        localStorage.setItem('senhaUsuario', senha);
+
+    const savedUsersString = localStorage.getItem('usuariosCadastrados');
+    if (savedUsersString) {
+      const savedUsers = JSON.parse(savedUsersString);
+
+      // Verifica se há algum usuário com o e-mail e senha fornecidos
+      const usuario = savedUsers.find((user: any) => user.email === emailUsuario && user.senha === senha);
+      if (usuario) {
+        this.router.navigate(['/home']);
+      } else {
+        alert('Usuário ou senha inválidos');
       }
-      this.router.navigate(['/home']);
     } else {
-      alert('Usuário ou senha inválidos');
+      alert('Nenhum usuário cadastrado. Por favor, cadastre-se.');
     }
   }
+
+  // entrar() {
+  //   const { emailUsuario, senha } = this.login;
+
+  //   const savedUsersString = localStorage.getItem('usuariosCadastrados');
+  //   if (savedUsersString) {
+  //     const savedUsers = JSON.parse(savedUsersString);
+
+  //     if (savedUsers.email === emailUsuario && savedUsers.senha === senha) {
+  //       this.router.navigate(['/home']);
+  //     } else {
+  //       alert('Usuário ou senha inválidos');
+  //     }
+  //   } else {
+  //     alert('Nenhum usuário cadastrado. Por favor, cadastre-se.');
+  //   }
+  // }
+
   esqueciMinhaSenha() {
     const { emailUsuario } = this.login;
     const usuario = this.usuariosCadastrados.find(user => user.email === emailUsuario);
-  
+
     if (usuario) {
-      
+
       const senhaPadrao = 'a1b2c4d4';
       this.login.senha = senhaPadrao;
-  
-      
+
+
       if (localStorage.getItem('emailUsuario')) {
         localStorage.setItem('senhaUsuario', senhaPadrao);
       }
-  
+
       alert('Sua senha foi redefinida para a senha padrão. Você pode prosseguir utilizando essa senha.');
     } else {
       alert('Usuário não encontrado. Certifique-se de que o email está correto.');
     }
   }
+
   cadastrar() {
     this.router.navigate(['/cadastro']);
   }
 }
-
