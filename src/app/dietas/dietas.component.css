@@ -1,0 +1,54 @@
+/* Estilizações para o contêiner principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Estilizações para o campo de pesquisa */
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilizações para o contêiner dos cards */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Estilizações para os cards */
+  .card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilizações para a imagem dentro do card */
+  .card img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  /* Estilizações para o corpo do card */
+  .card-body {
+    padding: 15px;
+  }
+  
+  /* Estilizações para o título do card */
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilizações para o texto do card */
+  .card-text {
+    margin-bottom: 8px;
+  }
