@@ -14,16 +14,18 @@ export class CadastroComponent {
     nome: '',
     email: '',
     dataDeNascimento: '',
+    altura: '',
     senha: '',
+    peso: '',
     confirmarSenha: ''
   };
 
   constructor() { }
 
   cadastrarUsuario() {
-    const { nome, email, dataDeNascimento, senha, confirmarSenha } = this.usuario;
+    const { nome, email, dataDeNascimento, altura, peso, senha, confirmarSenha } = this.usuario;
 
-    if (!nome || !email || !dataDeNascimento || !senha || !confirmarSenha) {
+    if (!nome || !email || !dataDeNascimento || !senha || !confirmarSenha || !altura || !peso) {
       alert('Por favor, preencha todos os campos.');
       return;
     }
@@ -52,26 +54,12 @@ export class CadastroComponent {
       nome,
       email,
       dataDeNascimento,
+      altura,
+      peso,
       senha
     });
     // Salva a lista atualizada de usuários no localStorage
     localStorage.setItem('usuariosCadastrados', JSON.stringify(usuariosCadastrados));
-
-
-    // const usuario = {
-    //   nome,
-    //   email,
-    //   dataDeNascimento,
-    //   senha
-    // };
-
-    // const userString = localStorage.getItem('usuarioCadastrado')
-    // if (userString) {
-    //   const user = JSON.parse(userString)
-
-    // }
-
-    // localStorage.setItem('usuarioCadastrado', JSON.stringify(usuario));
 
     window.location.href = '/login';
   }
