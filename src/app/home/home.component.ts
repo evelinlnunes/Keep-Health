@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   alimentos = [
     {
@@ -95,6 +95,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // Armazenar os alimentos no localStorage ao inicializar o componente
+    // localStorage.setItem('alimentos', JSON.stringify(this.alimentos));
     localStorage.setItem('alimentos', JSON.stringify(this.alimentos));
   }
 }

@@ -1,1 +1,18 @@
-<p>perfil works!</p>
+<div class="perfil-container">
+    <h2>Perfil</h2>
+    <div *ngIf="usuario">
+      <p><strong>Nome:</strong> {{ usuario.nome }}</p>
+      <p><strong>Email:</strong> {{ usuario.email }}</p>
+      <p><strong>Idade:</strong> {{ usuario.dataDeNascimento | calculatorAge }}</p>
+      <p><strong>Altura:</strong> {{ usuario.altura | metros}}</p>
+      <p><strong>Peso:</strong> {{ usuario.peso }}</p>
+      <div>
+        <input type="text" placeholder="Informe o CEP">
+        <button>Pesquisar</button>
+      </div>
+      
+    </div>
+    <div *ngIf="!usuario">
+      <p>Nenhum usuário encontrado.</p>
+    </div>
+  </div>
