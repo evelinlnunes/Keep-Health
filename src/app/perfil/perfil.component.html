@@ -7,12 +7,15 @@
       <p><strong>Altura:</strong> {{ usuario.altura | metros}}</p>
       <p><strong>Peso:</strong> {{ usuario.peso }}</p>
       <div>
-        <input type="text" placeholder="Informe o CEP">
-        <button>Pesquisar</button>
+        <input type="text" placeholder="Informe o CEP" [(ngModel)]="cepInput">
+        <button (click)="searchAddress()">Pesquisar</button>
       </div>
+      <div *ngIf="endereco">
+        <p><strong>Endereço:</strong> {{ endereco.logradouro }}, {{ endereco.complemento }} - {{ endereco.bairro }} - {{ endereco.localidade }}/{{ endereco.uf }}</p>
+      </div>
+    </div>
       
     </div>
     <div *ngIf="!usuario">
       <p>Nenhum usuário encontrado.</p>
     </div>
-  </div>
