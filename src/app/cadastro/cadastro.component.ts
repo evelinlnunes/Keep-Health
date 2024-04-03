@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent {
   usuario = {
@@ -35,21 +35,21 @@ export class CadastroComponent {
       return;
     }
 
-    // Verifica se já existe algum usuário cadastrado
+    
     const userString = localStorage.getItem('usuariosCadastrados');
     let usuariosCadastrados: any[] = [];
     if (userString) {
       usuariosCadastrados = JSON.parse(userString);
     }
 
-    // Verifica se o usuário já existe
+  
     const usuarioExistente = usuariosCadastrados.find((user: any) => user.email === email);
     if (usuarioExistente) {
       alert('Este e-mail já está cadastrado. Por favor, utilize outro e-mail.');
       return;
     }
 
-    // Adiciona o novo usuário à lista
+    
     usuariosCadastrados.push({
       nome,
       email,
@@ -58,7 +58,7 @@ export class CadastroComponent {
       peso,
       senha
     });
-    // Salva a lista atualizada de usuários no localStorage
+    
     localStorage.setItem('usuariosCadastrados', JSON.stringify(usuariosCadastrados));
 
     window.location.href = '/login';

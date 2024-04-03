@@ -10,7 +10,7 @@ import { log } from 'console';
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './diet-detail.component.html',
-  styleUrl: './diet-detail.component.css'
+  styleUrl: './diet-detail.component.scss'
 })
 export class DietDetailComponent {
   alimentosID: any[] = [];

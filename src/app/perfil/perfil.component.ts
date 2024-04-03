@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, CalculatorAgePipe, MetrosPipe, FormsModule],
   templateUrl: './perfil.component.html',
-  styleUrl: './perfil.component.css'
+  styleUrl: './perfil.component.scss'
 })
 
 export class PerfilComponent {
@@ -31,7 +31,6 @@ export class PerfilComponent {
     }
   }
   searchAddress(): void {
-    // console.log(this.usuario, this.cepInput);
     let that = this;
 
     if (this.cepInput) {

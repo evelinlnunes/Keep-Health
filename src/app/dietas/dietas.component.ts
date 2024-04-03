@@ -8,7 +8,7 @@ import { Router, RouterLink } from '@angular/router';
   standalone: true,
   imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './dietas.component.html',
-  styleUrl: './dietas.component.css'
+  styleUrl: './dietas.component.scss'
 })
 export class DietasComponent {
   // alimentos: any[] = [
@@ -101,7 +101,7 @@ export class DietasComponent {
 
   ngOnInit(): void {
 
-    // Inicializa a lista de alimentos filtrados com todos os alimentos
+ 
     if (typeof localStorage !== 'undefined') {
       const alimentosString = localStorage.getItem('alimentos');
       if (alimentosString) {
@@ -114,10 +114,10 @@ export class DietasComponent {
 
   pesquisarAlimento(): void {
     if (this.pesquisa.trim() === '') {
-      // Se o campo de pesquisa estiver vazio, exibir todos os alimentos
+      
       this.alimentosFiltrados = this.alimentos;
     } else {
-      // Filtrar os alimentos com base na pesquisa
+      
       this.alimentosFiltrados = this.alimentos.filter(alimento =>
         alimento.name.toLowerCase().includes(this.pesquisa.toLowerCase())
       );
