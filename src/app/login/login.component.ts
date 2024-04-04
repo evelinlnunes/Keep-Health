@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     if (savedUsersString) {
       const savedUsers = JSON.parse(savedUsersString);
 
-      // Verifica se há algum usuário com o e-mail e senha fornecidos
+      
       const usuario = savedUsers.find((user: any) => user.email === emailUsuario && user.senha === senha);
       if (usuario) {
         this.router.navigate(['/home']);
@@ -49,22 +49,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // entrar() {
-  //   const { emailUsuario, senha } = this.login;
 
-  //   const savedUsersString = localStorage.getItem('usuariosCadastrados');
-  //   if (savedUsersString) {
-  //     const savedUsers = JSON.parse(savedUsersString);
-
-  //     if (savedUsers.email === emailUsuario && savedUsers.senha === senha) {
-  //       this.router.navigate(['/home']);
-  //     } else {
-  //       alert('Usuário ou senha inválidos');
-  //     }
-  //   } else {
-  //     alert('Nenhum usuário cadastrado. Por favor, cadastre-se.');
-  //   }
-  // }
 
   esqueciMinhaSenha() {
     const { emailUsuario } = this.login;

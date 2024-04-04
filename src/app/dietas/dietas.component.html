@@ -1,8 +1,8 @@
 <div class="container">
-    <!-- Campo de pesquisa -->
+    
     <input type="text" [(ngModel)]="pesquisa" (input)="pesquisarAlimento()" placeholder="Pesquisar alimentos">
   
-    <!-- Lista de alimentos em cards -->
+    
     <div class="card-container">
       <div class="card" *ngFor="let alimento of alimentosFiltrados" (click)="detalhar(alimento.id)" >
         <img [src]="alimento.imageLink" alt="Imagem do alimento" >

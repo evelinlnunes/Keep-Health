@@ -7,7 +7,7 @@
 }
 
 .card-container {
-    width: 400px; /* largura do card */
+    width: 400px; 
     margin-top: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -29,6 +29,6 @@
     margin-top: 5px;
 }
 .card-body img {
-    max-width: 100%; /* Limita a largura da imagem para ocupar no máximo a largura do card */
-    height: auto; /* Mantém a proporção da imagem */
+    max-width: 100%;
+    height: auto; 
 }

@@ -1,5 +1,36 @@
-<div class="container">
-    <h1>Bem-vindo à Página Inicial</h1>
-    <p>Esta é uma página home básica.</p>
+<div class="button-container">
+<button  type="button" label="Adicionar atividade" (click)="showDialog()">Adicionar atividade</button>
+</div>
+<p-dialog [(visible)]="displayDialog" header="Adicionar Atividade">
+
+  <div>
+    <label for="tipoAtividade">Tipo de Atividade:</label>
+    <select id="tipoAtividade" [(ngModel)]="tipoAtividade">
+      <option value="Corrida">Corrida</option>
+      <option value="Caminhada">Caminhada</option>
+      <option value="Ciclismo">Ciclismo</option>
+    </select>
   </div>
-  
+  <div>
+    <label for="dataRealizada">Data Realizada:</label>
+    <input id="dataRealizada" type="date" [(ngModel)]="dataRealizada">
+  </div>
+  <div>
+    <label for="distancia">Distância (opcional):</label>
+    <input id="distancia" type="number" [(ngModel)]="distancia">
+  </div>
+  <div>
+    <label for="tempo">Tempo (opcional):</label>
+    <input id="tempo" type="text" [(ngModel)]="tempo">
+  </div>
+  <button pButton type="button" label="Salvar" (click)="salvarAtividade()"></button>
+</p-dialog>
+<div class="card-container"> 
+<div *ngFor="let atividade of atividades" class="card">
+  <div><img [src]='atividade.img' alt=""></div>
+  <div class="card-details">Tipo: {{ atividade.tipo }}</div>
+  <div class="card-details">Data: {{ atividade.data }}</div>
+  <div class="card-details" *ngIf="atividade.distancia">Distância: {{ atividade.distancia }}</div>
+  <div class="card-details" *ngIf="atividade.tempo">Tempo: {{ atividade.tempo }}</div>
+</div>
+</div>

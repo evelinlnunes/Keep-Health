@@ -1,54 +1,94 @@
-/* Estilizações para o contêiner principal */
+$cor-fundo: #264653;
+$cor-texto: #ffffff;
+$cor-hover: #2a9d8f;
+$cor-card-border: #ccc; 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 20%;
+  border: 1px solid $cor-card-border;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9; 
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: $cor-fundo;
+  text-align: center;
   
-  /* Estilizações para o campo de pesquisa */
-  input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
+   
+}
+
+.card-text {
+  margin-bottom: 8px;
+  color: $cor-fundo; 
   
-  /* Estilizações para o contêiner dos cards */
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  /* Estilizações para os cards */
+}
+
+@media only screen and (max-width: 480px) {
   .card {
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: calc(50% - 20px);
+    max-width: calc(50% - 20px);
     margin: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  /* Estilizações para a imagem dentro do card */
-  .card img {
-    width: 100%;
-    height: auto;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
   }
   
-  /* Estilizações para o corpo do card */
-  .card-body {
-    padding: 15px;
-  }
-  
-  /* Estilizações para o título do card */
   .card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 0.7rem;
   }
+}
+  @media only screen and (max-width: 480px) {
+    .card {
+      width: calc(50% - 20px); 
+      max-width: calc(50% - 20px); 
+      margin: 10px; 
+    }
+    
+    .container {
+      max-width: 100%; 
+      padding: 0 10px; 
+    }
   
-  /* Estilizações para o texto do card */
-  .card-text {
-    margin-bottom: 8px;
+    .card-title {
+      font-size: 0.7rem; 
+    }
   }

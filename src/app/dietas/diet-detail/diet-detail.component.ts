@@ -15,19 +15,10 @@ import { log } from 'console';
 export class DietDetailComponent {
   alimentosID: any[] = [];
   alimentoID : any = {}
-  // {
-  //   id: 0,
-  //   name: "",
-  //   description: "",
-  //   qttCalories: 0,
-  //   qttDaysFeed: 0,
-  //   imageLink: "../assets/alimentos.jpg"
-  // };
- 
+
 
   constructor(
     private route: ActivatedRoute,
-    // private dietasComponent: DietasComponent // Injetando DietasComponent
   ) { }
 
 
@@ -41,7 +32,7 @@ export class DietDetailComponent {
         const alimentosString = localStorage.getItem('alimentos');
         if (alimentosString) {
           this.alimentosID = JSON.parse(alimentosString);
-          // console.log("minha lista de alimentos: ", this.alimentosID);
+        
 
         }
 

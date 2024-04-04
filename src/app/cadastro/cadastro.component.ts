@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
@@ -5,7 +6,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })

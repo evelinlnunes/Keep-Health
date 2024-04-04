@@ -1,0 +1,70 @@
+// Cores utilizadas no cadastro
+$cor-fundo: #264653;
+$cor-texto: #ffffff;
+$cor-hover: #2a9d8f;
+
+nav {
+  background-color: $cor-fundo;
+  padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    li {
+      display: inline-block;
+      margin: 0 10px;
+      a {
+        color: $cor-texto;
+        text-decoration: none;
+        padding: 5px 10px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        &:hover {
+          color: $cor-hover;
+          background-color: lighten($cor-texto, 20%);
+        }
+      }
+    }
+  }
+  .auth-links {
+    margin-right: 20px;
+    li {
+      display: inline-block;
+      margin-left: 10px;
+      a {
+        color: $cor-texto;
+        text-decoration: none;
+        &:hover {
+          color: $cor-hover;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  nav {
+    padding: 10px;
+  }
+  .auth-links {
+    margin-right: 10px; 
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+}
+
+@media only screen and (min-width: 1025px) {
+
+}
