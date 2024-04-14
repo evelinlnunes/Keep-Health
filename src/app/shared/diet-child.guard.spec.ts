@@ -5,8 +5,8 @@ import { DietChildGuard } from './diet-child.guard';
 
 describe('dietChildGuard', () => {
   const executeGuard: CanActivateFn = (...guardParameters) => {
-    const guard = TestBed.inject(DietChildGuard); // Obter uma instância do DietChildGuard
-    return guard.canActivateChild(...guardParameters); // Chamar o método canActivateChild
+    const guard = TestBed.inject(DietChildGuard); 
+    return guard.canActivateChild(...guardParameters); 
   };
 
   beforeEach(() => {

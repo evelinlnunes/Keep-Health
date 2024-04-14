@@ -14,22 +14,13 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [LogadoGuard] },
   { path: 'cadastro', component: CadastroComponent },
-  {
-    path: 'dietas',
-    canActivateChild: [DietChildGuard],
-    children: [
-      {
-        path: '',
-        component: DietasComponent
-      },
-      {
-        path: ':id',
-        component: DietDetailComponent
-      }
-    ]
-  },
+  
   { path: 'perfil', component: PerfilComponent, canActivate: [LogadoGuard] },
   { path: 'sidebar', component: SidebarComponent },
+  {
+    path: 'dietas',
+    loadChildren: () => import('./dietas/dietas-routing.module').then(m => m.DietasRoutingModule)
+  }
 
 
 ];
