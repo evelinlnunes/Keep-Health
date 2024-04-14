@@ -5,7 +5,6 @@ export const LogadoGuard: CanActivateFn = () => {
   if (loggedIn) {
     return true;
   } else {
-    // Se o usuário não estiver autenticado, redireciona para a página de login
     window.location.href = '/login';
     return false;
   }

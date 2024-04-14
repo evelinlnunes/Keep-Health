@@ -7,6 +7,7 @@ import { DietDetailComponent } from './dietas/diet-detail/diet-detail.component'
 import { DietasComponent } from './dietas/dietas.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { LogadoGuard } from './shared/logado.guard';
+import { DietChildGuard } from './shared/diet-child.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full'},
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
   {
     path: 'dietas',
+    canActivateChild: [DietChildGuard],
     children: [
       {
         path: '',

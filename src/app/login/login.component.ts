@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    if (typeof localStorage !== 'undefined'&& localStorage.getItem('loggedIn') === null) {
+    if (typeof localStorage !== 'undefined' ) {
       localStorage.setItem('loggedIn', 'false'); 
       
       const savedEmail = localStorage.getItem('emailUsuario');
