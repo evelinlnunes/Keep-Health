@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    if (typeof localStorage !== 'undefined') {
+    if (typeof localStorage !== 'undefined'&& localStorage.getItem('loggedIn') === null) {
+      localStorage.setItem('loggedIn', 'false'); 
+      
       const savedEmail = localStorage.getItem('emailUsuario');
       if (savedEmail) {
         this.login.emailUsuario = savedEmail;
@@ -40,16 +42,16 @@ export class LoginComponent implements OnInit {
       
       const usuario = savedUsers.find((user: any) => user.email === emailUsuario && user.senha === senha);
       if (usuario) {
+        localStorage.setItem('loggedIn', 'true');
         this.router.navigate(['/home']);
       } else {
+        localStorage.setItem('loggedIn', 'false');
         alert('Usuário ou senha inválidos');
       }
     } else {
       alert('Nenhum usuário cadastrado. Por favor, cadastre-se.');
     }
-  }
-
-
+  };
 
   esqueciMinhaSenha() {
     const { emailUsuario } = this.login;
@@ -69,7 +71,7 @@ export class LoginComponent implements OnInit {
     } else {
       alert('Usuário não encontrado. Certifique-se de que o email está correto.');
     }
-  }
+  };
 
   cadastrar() {
     this.router.navigate(['/cadastro']);

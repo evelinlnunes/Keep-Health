@@ -6,11 +6,12 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { DietDetailComponent } from './dietas/diet-detail/diet-detail.component';
 import { DietasComponent } from './dietas/dietas.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { LogadoGuard } from './shared/logado.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full'},
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [LogadoGuard] },
   { path: 'cadastro', component: CadastroComponent },
   {
     path: 'dietas',
@@ -25,7 +26,7 @@ export const routes: Routes = [
       }
     ]
   },
-  { path: 'perfil', component: PerfilComponent },
+  { path: 'perfil', component: PerfilComponent, canActivate: [LogadoGuard] },
   { path: 'sidebar', component: SidebarComponent },
 
 
